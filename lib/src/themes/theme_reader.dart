@@ -143,12 +143,14 @@ class ThemeReader {
         _layerId(jsonLayer), PaintingStyle.fill, 'text', jsonPaint, null);
     if (paint != null) {
       final layout = _toTextLayout(jsonLayer);
-      final textHalo = _toTextHalo(jsonLayer);
+      final textHaloColor = _toTextHalo(jsonLayer);
 
       return DefaultLayer(jsonLayer['id'] ?? _unknownId, ThemeLayerType.symbol,
           selector: selector,
-          style:
-              Style(textPaint: paint, textLayout: layout, textHalo: textHalo),
+          style: Style(
+              textPaint: paint,
+              textLayout: layout,
+              textHaloColor: textHaloColor),
           minzoom: _minZoom(jsonLayer),
           maxzoom: _maxZoom(jsonLayer),
           metadata: _metadata(jsonLayer));
